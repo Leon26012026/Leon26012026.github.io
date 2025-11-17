@@ -296,10 +296,6 @@
             box-shadow: 0 16px 40px rgba(15, 23, 42, 0.8);
         }
 
-        section + section {
-            margin-top: 0;
-        }
-
         h2 {
             font-size: 18px;
             margin: 0 0 10px;
@@ -325,41 +321,11 @@
             font-size: 13px;
         }
 
-        .card-soft h3 {
-            font-size: 13px;
-            margin: 0 0 6px;
-        }
-
         ul {
             padding-left: 18px;
             margin: 6px 0 0;
             font-size: 13px;
             color: var(--muted);
-        }
-
-        li {
-            margin-bottom: 4px;
-        }
-
-        .pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 6px;
-        }
-
-        .pill {
-            font-size: 11px;
-            padding: 4px 8px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.5);
-            color: var(--muted);
-        }
-
-        .pill-strong {
-            border-color: rgba(56, 189, 248, 0.8);
-            color: #e0f2fe;
-            background: rgba(15, 23, 42, 0.95);
         }
 
         .video-wrapper {
@@ -371,18 +337,6 @@
             margin-top: 10px;
         }
 
-        .video-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .video-note {
-            font-size: 11px;
-            color: var(--muted);
-            margin-top: 4px;
-        }
-
         .cta-box {
             background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.98));
             border-radius: 12px;
@@ -390,10 +344,6 @@
             border: 1px solid rgba(56, 189, 248, 0.7);
             margin-top: 10px;
             font-size: 13px;
-        }
-
-        .cta-box strong {
-            color: #e0f2fe;
         }
 
         .cta-button {
@@ -411,19 +361,11 @@
             cursor: pointer;
         }
 
-        .cta-button span {
-            margin-left: 6px;
-        }
-
         footer {
             margin-top: 26px;
             font-size: 11px;
             color: var(--muted);
             text-align: center;
-        }
-
-        footer a {
-            color: var(--accent);
         }
 
         @media (max-width: 880px) {
@@ -437,12 +379,10 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .hero-right {
-                order: -1;
-            }
         }
     </style>
 </head>
+
 <body>
 <div class="container">
     <header>
@@ -453,6 +393,7 @@
                 <div class="logo-text-sub">Parkplätze teilen. Stress sparen.</div>
             </div>
         </div>
+
         <nav>
             <a href="#idee">Idee</a>
             <a href="#funktion">Wie es funktioniert</a>
@@ -474,7 +415,7 @@
 
             <p class="hero-subtitle">
                 ParkEase verbindet Autofahrer mit privaten Parkplatzbesitzern. So wird aus leeren Stellplätzen
-                ein smartes Sharing-Netzwerk – für weniger Suchverkehr, mehr Zeit und ein entspannteres Ankommen.
+                ein smartes Sharing-Netzwerk – für weniger Suchverkehr, mehr Zeit und ein entspanntes Ankommen.
             </p>
 
             <div class="hero-highlight">
@@ -530,51 +471,40 @@
         <section id="funktion">
             <h2>Wie ParkEase funktioniert</h2>
             <p class="section-subtitle">
-                Für Autofahrer ist ParkEase die schnellste Abkürzung zum Parkplatz. Für Besitzer wird die Einfahrt
-                zur Einnahmequelle.
+                Für Autofahrer ist ParkEase die schnellste Abkürzung zum Parkplatz. Für Besitzer wird der Stellplatz zur Einnahmequelle.
             </p>
 
             <div class="grid-two">
                 <div class="card-soft">
                     <h3>Für Autofahrer</h3>
                     <ul>
-                        <li>Freien Parkplatz in der App finden – in Echtzeit.</li>
-                        <li>Preis, Entfernung und Bewertungen vergleichen.</li>
-                        <li>Mit wenigen Klicks reservieren und direkt dorthin navigieren.</li>
-                        <li>Bequem per App bezahlen (z. B. Apple / Google Pay).</li>
+                        <li>Freie Parkplätze in Echtzeit finden.</li>
+                        <li>Preis & Entfernung vergleichen.</li>
+                        <li>Reservieren & Navigieren mit einem Klick.</li>
+                        <li>Bezahlung direkt per App.</li>
                     </ul>
                 </div>
 
                 <div class="card-soft">
-                    <h3>Für Parkplatzbesitzer</h3>
+                    <h3>Für Vermieter</h3>
                     <ul>
-                        <li>Eigene Einfahrt oder Stellplatz stundenweise freigeben.</li>
-                        <li>Eigene Preise und Zeiten festlegen.</li>
-                        <li>Übersicht über Buchungen und Einnahmen.</li>
-                        <li>Mit Bewertungen Vertrauen bei Fahrern aufbauen.</li>
+                        <li>Stellplatz stundenweise freigeben.</li>
+                        <li>Eigene Preise wählen.</li>
+                        <li>Buchungen & Einnahmen im Dashboard.</li>
+                        <li>Bewertungen für Vertrauen.</li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="card-soft" style="margin-top: 10px;">
-                <h3>Mehrwert (Value Proposition)</h3>
-                <ul>
-                    <li><strong>Weniger Suchverkehr:</strong> Kürzere Parkplatzsuche, weniger Stau, weniger CO₂.</li>
-                    <li><strong>Mehr Einkommen:</strong> Ungenutzte Stellplätze werden zur Einnahmequelle.</li>
-                    <li><strong>Sichere Plattform:</strong> Klare Buchung, integrierte Bezahlung, transparente Bewertungen.</li>
-                    <li><strong>Smartere Städte:</strong> Bestehender Parkraum wird effizienter genutzt.</li>
-                </ul>
             </div>
         </section>
 
         <section id="video">
-            <h2>Pitch-Video (MVP)</h2>
+            <h2>Pitch-Video</h2>
             <p class="section-subtitle">
-                In 30 Sekunden erklären wir, wie ParkEase das Parken in der Stadt einfacher, schneller und nachhaltiger macht.
+                Kurz und klar: So löst ParkEase das Parkplatzproblem.
             </p>
 
             <div class="video-wrapper">
-                <iframe
+                <iframe 
                     src="https://www.youtube.com/embed/il_ueri6y8s"
                     title="ParkEase Pitch Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -582,36 +512,30 @@
                     allowfullscreen>
                 </iframe>
             </div>
-            <div class="video-note">
-                Hinweis: Im Rahmen des Moduls wird das Video als MVP-Pitch (max. 45 Sekunden) auf YouTube hochgeladen und hier eingebettet.
-            </div>
 
             <div class="cta-box" id="termin">
                 <strong>Direkt mit dem Projektteam sprechen?</strong><br>
-                Buchen Sie einen kurzen, unverbindlichen Austausch über Calendly.
+                Buche ein kurzes Gespräch über Calendly.
                 <br>
-                <a href="https://calendly.com/app/scheduling/meeting_types/user/me" target="_blank" rel="noopener noreferrer">
+
+                <a href="https://calendly.com/leonbritz0" target="_blank" rel="noopener noreferrer">
                     <button class="cta-button">
-                        Termin buchen
-                        <span>→</span>
+                        Termin buchen <span>→</span>
                     </button>
                 </a>
-                <div style="margin-top: 4px; font-size: 11px; color: var(--muted);">
-                    Der Link führt zu unserem Kalender auf calendly.com.
-                </div>
-            </div>
 
-            <div style="margin-top: 10px; font-size: 12px; color: var(--muted);">
-                Projektteam: Leon Britz (Projektleitung) · Laura Becker (App-Entwicklung) ·
-                Jonas Keller (UI/UX) · Sarah Winkler (QA) · David Braun (Marketing)
+                <div style="margin-top: 4px; font-size: 11px; color: var(--muted);">
+                    Der Link führt zu unserem öffentlichen Calendly-Kalender.
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         ParkEase – Konzept im Rahmen eines Hochschulprojekts (MVP).<br>
-        Diese Seite wird über <strong>GitHub Pages</strong> bereitgestellt.
+        Bereitgestellt über <strong>GitHub Pages</strong>.
     </footer>
+
 </div>
 </body>
 </html>
