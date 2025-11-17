@@ -504,14 +504,16 @@
             </p>
 
             <div class="video-wrapper">
-                <iframe 
-                    src="https://www.youtube.com/embed/il_ueri6y8s"
-                    title="ParkEase Pitch Video"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-                </iframe>
-            </div>
+    <iframe
+        src="https://www.youtube.com/embed/il_ueri6y8s?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=il_ueri6y8s"
+        title="ParkEase Pitch Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+    </iframe>
+</div>
+
 
             <div class="cta-box" id="termin">
                 <strong>Direkt mit dem Projektteam sprechen?</strong><br>
