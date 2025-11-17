@@ -574,9 +574,8 @@
             </p>
 
             <div class="video-wrapper">
-                <!-- TODO: Ersetze VIDEO_ID_HERE mit deiner echten YouTube-Video-ID -->
                 <iframe
-                    src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+                    src="https://www.youtube.com/embed/il_ueri6y8s"
                     title="ParkEase Pitch Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     referrerpolicy="strict-origin-when-cross-origin"
@@ -591,8 +590,7 @@
                 <strong>Direkt mit dem Projektteam sprechen?</strong><br>
                 Buchen Sie einen kurzen, unverbindlichen Austausch über Calendly.
                 <br>
-                <!-- TODO: Ersetze https://calendly.com/DEIN_LINK mit deinem echten Calendly-Link -->
-                <a href="https://calendly.com/DEIN_LINK" target="_blank" rel="noopener noreferrer">
+                <a href="https://calendly.com/app/scheduling/meeting_types/user/me" target="_blank" rel="noopener noreferrer">
                     <button class="cta-button">
                         Termin buchen
                         <span>→</span>
