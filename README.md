@@ -192,17 +192,7 @@
             position: relative;
         }
 
-        .video-wrapper::before {
-            content: "▶";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 46px;
-            color: rgba(248,250,252,0.65);
-            pointer-events: none;
-            text-shadow: 0 12px 30px rgba(15,23,42,0.9);
-        }
+        /* Overlay-Pfeil entfernt -> kein blaues Zeichen mehr */
 
         .video-wrapper iframe {
             width: 100%;
@@ -284,20 +274,41 @@
         .hero-title {
             font-size: clamp(32px, 4vw, 44px);
             font-weight: 800;
-            margin: 10px 0;
+            margin: 10px 0 4px;
             color: #f9fafb;
         }
 
-        .hero-title span {
-            background: linear-gradient(120deg, #22c55e, #38bdf8);
-            -webkit-background-clip: text;
-            color: transparent;
+        /* Animierter Slogan */
+        .hero-slogan {
+            font-size: 22px;
+            font-weight: 900;
+            color: #facc15;
+            text-shadow: 0 4px 18px rgba(15,23,42,0.9);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            animation: sloganPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes sloganPulse {
+            0% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-2px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
         }
 
         .hero-subtitle {
             color: #cbd5f5;
             max-width: 520px;
             font-size: 14px;
+            margin-top: 10px;
         }
 
         .hero-highlight {
@@ -354,7 +365,7 @@
 
         .hero-right {
             background: radial-gradient(circle at top left, rgba(37,99,235,0.16), rgba(15,23,42,0.96));
-            padding: 16px;
+            padding: 18px;
             border-radius: 18px;
             border: 1px solid rgba(148,163,184,0.45);
             box-shadow: 0 18px 45px rgba(15,23,42,0.9);
@@ -362,7 +373,8 @@
 
         .hero-right h3 {
             margin-top: 0;
-            font-size: 15px;
+            font-size: 18px;
+            font-weight: 800;
             color: #e5e7eb;
             display: flex;
             align-items: center;
@@ -371,13 +383,22 @@
 
         .hero-right h3::before {
             content: "ⓘ";
-            font-size: 13px;
+            font-size: 16px;
             color: #93c5fd;
         }
 
         .hero-right p {
-            font-size: 13px;
-            color: #cbd5f5;
+            font-size: 15px;
+            font-weight: 600;
+            color: #e5e7eb;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 12px;
+            margin: 10px 0 14px;
+            border: 1px solid rgba(148,163,184,0.7);
+            box-shadow: 0 12px 30px rgba(15,23,42,0.9);
         }
 
         /* FUNKTION */
@@ -491,6 +512,10 @@
                     Finde deinen Parkplatz in <span>Sekunden</span>.
                 </h1>
 
+                <div class="hero-slogan">
+                    Parkplätze teilen. Stress sparen.
+                </div>
+
                 <p class="hero-subtitle">
                     ParkEase verbindet Autofahrer mit privaten Stellplatzanbietern – so wird aus ungenutzten
                     Parkflächen ein flexibles, digitales Sharing-Angebot.
@@ -516,13 +541,20 @@
 
             <div class="hero-right">
                 <h3>Was ist ParkEase?</h3>
+
+                <!-- Bild aus dem Anhang – Datei im Repo z. B. als parkease-parkhaus.jpg speichern -->
+                <img src="parkease-parkhaus.jpg"
+                     alt="Leeres, großes Parkhaus mit vielen Stellplätzen"
+                     class="hero-image">
+
                 <p>
                     ParkEase ist eine Konzept-App, die freien Parkraum sichtbar macht. Stellplätze, Einfahrten oder private
                     Parkflächen können kurzfristig freigegeben und von Autofahrern gebucht werden.
                 </p>
                 <p>
                     So entsteht ein smarter, gemeinschaftlich genutzter Parkplatzpool – mit Vorteil für Fahrer, Vermieter
-                    und die Umwelt.
+                    und die Umwelt. Genau solche Bilder von leeren, anonymen Parkhäusern wie oben sollen durch eine
+                    bessere Auslastung und Planung in Zukunft verhindert werden.
                 </p>
             </div>
         </section>
@@ -551,4 +583,3 @@
 </div>
 </body>
 </html>
-
