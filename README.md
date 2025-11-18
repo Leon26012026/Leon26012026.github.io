@@ -439,7 +439,7 @@
         <section id="video">
             <h2 style="text-align:center;">Pitch-Video</h2>
             <p class="section-subtitle" style="text-align:center;">
-                In diesem kurzen Video zeigen wir, wie ParkEase das Parken einfacher, schneller und nachhaltiger macht.
+                <strong>In diesem kurzen Video zeigen wir, wie ParkEase das Parken einfacher, schneller und nachhaltiger macht.</strong>
             </p>
 
             <div class="video-wrapper">
