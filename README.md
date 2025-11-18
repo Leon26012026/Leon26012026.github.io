@@ -1,5 +1,5 @@
 # Leon26012026.github.io
-<!DOCTYPE html>
+
 <html lang="de">
 <head>
     <meta charset="UTF-8">
