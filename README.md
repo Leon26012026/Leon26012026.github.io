@@ -5,40 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ParkEase – Intelligente Parkplatz-Sharing-App</title>
-    <meta name="description" content="ParkEase ist eine App, mit der private Parkplatzbesitzer ihre freien Stellplätze an Autofahrer vermieten können – effizient, flexibel und nachhaltig.">
+    <meta name="description" content="ParkEase ist eine App, mit der private Parkplatzbesitzer freie Stellplätze mit Autofahrern teilen können – flexibel, effizient und nachhaltig.">
 
     <style>
         :root {
-            --bg: #f3f7f4;
-            --bg-soft: #e5f3ea;
-            --accent: #22c55e;      /* Grün – nachhaltig */
+            --bg: #f2f7f5;
+            --bg-soft: #e3f6ec;
+            --accent: #16a34a;
             --accent-soft: #bbf7d0;
-            --accent-dark: #15803d;
-            --text: #111827;
+            --accent-blue: #0ea5e9;
+            --text: #0f172a;
             --muted: #6b7280;
             --card: #ffffff;
             --border-soft: #d1d5db;
             --radius: 16px;
-            --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-            --spacing: 18px;
+            --shadow: 0 18px 40px rgba(0,0,0,0.08);
+            --max-box: 880px; /* gleiche Größe für Video und CTA */
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         body {
             margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top, #e0f7ec 0, #f9fafb 55%, #eef2ff 100%);
+            font-family: system-ui, sans-serif;
+            background: radial-gradient(circle at top, #e0efff 0, #f2f7f5 40%, #ecfdf3 100%);
             color: var(--text);
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+        a { color: inherit; text-decoration: none; }
 
         .container {
             max-width: 1080px;
@@ -46,383 +40,179 @@
             padding: 24px 18px 72px;
         }
 
+        /* HEADER */
         header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 16px;
+            align-items: center;
             margin-bottom: 32px;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .logo { display: flex; align-items: center; gap: 10px; }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 42px; height: 42px;
             border-radius: 12px;
-            background: radial-gradient(circle at 30% 20%, #22c55e, #16a34a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 20px;
-            color: white;
-            box-shadow: 0 10px 25px rgba(22, 163, 74, 0.35);
+            background: radial-gradient(circle at 30% 20%, #22c55e, #15803d);
+            display: flex; justify-content: center; align-items: center;
+            color: white; font-size: 20px; font-weight: 800;
+            box-shadow: 0 10px 25px rgba(22, 163, 74, 0.3);
         }
 
-        .logo-text-title {
-            font-weight: 700;
-            font-size: 18px;
-            letter-spacing: 0.03em;
-        }
+        nav { display: flex; gap: 18px; color: var(--muted); }
+        nav a:hover { color: var(--accent-blue); }
 
-        .logo-text-sub {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        nav {
-            display: flex;
-            gap: 18px;
-            font-size: 14px;
-            color: var(--muted);
-        }
-
-        nav a:hover {
-            color: var(--accent-dark);
-        }
-
+        /* HERO */
         .hero {
             display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-            align-items: center;
+            grid-template-columns: 1fr 1fr;
             gap: 32px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 4px 10px 4px 4px;
-            border-radius: 999px;
             background: #ecfdf3;
             border: 1px solid #bbf7d0;
-            color: #15803d;
+            padding: 4px 10px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-size: 11px;
-            margin-bottom: 12px;
+            color: #166534;
         }
 
         .hero-badge-dot {
-            width: 20px;
-            height: 20px;
-            border-radius: 999px;
-            background: radial-gradient(circle at 30% 20%, #22c55e, #16a34a);
-            box-shadow: 0 0 12px rgba(34, 197, 94, 0.7);
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #22c55e, #15803d);
         }
 
         .hero-title {
-            font-size: clamp(30px, 4vw, 40px);
+            font-size: clamp(32px, 4vw, 44px);
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 12px;
+            margin: 10px 0;
         }
 
         .hero-title span {
-            background: linear-gradient(120deg, #22c55e, #0ea5e9);
+            background: linear-gradient(120deg, #16a34a, #0ea5e9);
             -webkit-background-clip: text;
             color: transparent;
         }
 
-        .hero-subtitle {
-            font-size: 15px;
-            color: var(--muted);
-            max-width: 520px;
-            margin-bottom: 20px;
-        }
+        .hero-subtitle { color: var(--muted); max-width: 520px; }
 
-        .hero-highlight {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-size: 12px;
-            margin-bottom: 22px;
-        }
-
+        .hero-highlight { display: flex; gap: 10px; margin: 16px 0; }
         .chip {
-            padding: 5px 11px;
+            padding: 6px 12px;
             border-radius: 999px;
             background: #ecfdf3;
             border: 1px solid #bbf7d0;
-            color: #15803d;
+            color: #166534;
+            font-size: 12px;
         }
-
         .chip-strong {
-            background: #22c55e;
-            border-color: #22c55e;
-            color: #ecfdf3;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 16px;
+            background: #16a34a; border-color: #16a34a; color: #ecfdf3;
         }
 
         .btn-primary {
             padding: 10px 18px;
+            background: linear-gradient(135deg, #16a34a, #22c55e);
             border-radius: 999px;
             border: none;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
             color: #ecfdf3;
             font-weight: 600;
-            font-size: 14px;
             cursor: pointer;
-            box-shadow: 0 12px 30px rgba(22, 163, 74, 0.45);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
         }
 
         .btn-ghost {
             padding: 9px 16px;
             border-radius: 999px;
-            background: #ffffff;
             border: 1px solid var(--border-soft);
+            background: white;
             color: var(--muted);
-            font-size: 14px;
             cursor: pointer;
         }
-
-        .btn-ghost:hover {
-            border-color: #22c55e;
-            color: #15803d;
-        }
-
-        .hero-note {
-            font-size: 11px;
-            color: var(--muted);
-        }
+        .btn-ghost:hover { border-color: #0ea5e9; }
 
         .hero-right {
-            background: #ffffff;
+            background: white;
+            padding: 16px;
+            border-radius: 20px;
             border: 1px solid #d1fae5;
-            border-radius: 24px;
-            padding: 14px;
             box-shadow: var(--shadow);
         }
 
-        .hero-card {
-            border-radius: 18px;
-            padding: 14px;
-            background: linear-gradient(160deg, #ecfdf3, #ffffff);
-        }
-
-        .hero-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 11px;
-            color: var(--muted);
-            margin-bottom: 10px;
-        }
-
-        .hero-card-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .map-placeholder {
-            border-radius: 14px;
-            background: linear-gradient(135deg, #bbf7d0, #22c55e);
-            padding: 2px;
-            margin-bottom: 10px;
-        }
-
-        .map-inner {
-            border-radius: 12px;
-            background: #ffffff;
-            padding: 10px;
-            min-height: 150px;
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 6px;
-        }
-
-        .map-slot {
-            border-radius: 8px;
-            background: #f3f4f6;
-            border: 1px dashed #d1d5db;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            color: var(--muted);
-        }
-
-        .map-slot.free {
-            border-style: solid;
-            border-color: #22c55e;
-            background: #ecfdf3;
-            color: #166534;
-        }
-
-        .hero-card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 11px;
-            color: var(--muted);
-        }
-
-        .hero-card-badge {
-            padding: 4px 8px;
-            border-radius: 999px;
-            background: #ecfdf3;
-            border: 1px solid #22c55e;
-            color: #166534;
-            font-weight: 500;
-        }
-
-        main {
-            display: grid;
-            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-            gap: 26px;
-        }
+        /* HAUPTTEIL */
+        main { margin-top: 20px; display: block; }
 
         section {
             background: var(--card);
             border-radius: var(--radius);
-            padding: var(--spacing);
+            padding: 22px;
+            margin-bottom: 22px;
             border: 1px solid var(--border-soft);
             box-shadow: var(--shadow);
         }
 
-        h2 {
-            font-size: 18px;
-            margin: 0 0 10px;
-            color: var(--text);
-        }
+        h2 { margin: 0 0 12px; font-size: 20px; }
+        .section-subtitle { color: var(--muted); margin-bottom: 14px; }
 
-        .section-subtitle {
-            font-size: 13px;
-            color: var(--muted);
-            margin-bottom: 12px;
-        }
-
-        .grid-two {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px;
-        }
-
-        .card-soft {
-            background: #f9fafb;
-            border-radius: 12px;
-            padding: 10px;
-            border: 1px solid #e5e7eb;
-            font-size: 13px;
-        }
-
-        .card-soft h3 {
-            font-size: 13px;
-            margin: 0 0 6px;
-            color: var(--text);
-        }
-
-        ul {
-            padding-left: 18px;
-            margin: 6px 0 0;
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        li {
-            margin-bottom: 4px;
-        }
-
+        /* VIDEO — exakt so groß wie CTA → 880px */
         .video-wrapper {
+            width: 100%;
+            max-width: var(--max-box);
             aspect-ratio: 16 / 9;
-            border-radius: 14px;
+            margin: 16px auto;
+            background: black;
+            border-radius: 18px;
             overflow: hidden;
-            border: 1px solid #e5e7eb;
-            background: #000;
-            margin-top: 10px;
+            border: 1px solid #d1d5db;
         }
 
         .video-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
+            width: 100%; height: 100%; border: none;
         }
 
+        /* CTA BOX */
         .cta-box {
+            max-width: var(--max-box);
+            margin: 16px auto 0;
             background: linear-gradient(135deg, #ecfdf3, #ffffff);
-            border-radius: 12px;
-            padding: 12px;
             border: 1px solid #bbf7d0;
-            margin-top: 10px;
-            font-size: 13px;
-        }
-
-        .cta-box strong {
-            color: #166534;
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: var(--shadow);
         }
 
         .cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 8px;
-            padding: 7px 14px;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: #16a34a;
             border-radius: 999px;
             border: none;
-            background: #22c55e;
-            color: #ecfdf3;
+            color: white;
             font-weight: 600;
-            font-size: 13px;
             cursor: pointer;
         }
 
-        .cta-button span {
-            margin-left: 6px;
-        }
-
-        .cta-button:hover {
-            background: #16a34a;
-        }
-
         footer {
-            margin-top: 26px;
-            font-size: 11px;
-            color: var(--muted);
+            margin-top: 30px;
             text-align: center;
+            color: var(--muted);
+            font-size: 12px;
         }
 
         @media (max-width: 880px) {
-            .hero, main {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        @media (max-width: 640px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+            .hero { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
 </head>
 
 <body>
 <div class="container">
+
+    <!-- HEADER -->
     <header>
         <div class="logo">
             <div class="logo-icon">P</div>
@@ -434,147 +224,97 @@
 
         <nav>
             <a href="#idee">Idee</a>
-            <a href="#funktion">Wie es funktioniert</a>
             <a href="#video">Pitch-Video</a>
-            <a href="#termin">Termin buchen</a>
+            <a href="#funktion">Funktion</a>
+            <a href="#termin">Termin</a>
         </nav>
     </header>
 
+    <!-- HERO -->
     <section class="hero" id="idee">
         <div>
             <div class="hero-badge">
                 <div class="hero-badge-dot"></div>
-                <span>Startup-Projekt · MVP-Phase</span>
+                MVP · Hochschulprojekt
             </div>
 
             <h1 class="hero-title">
-                Finde deinen Parkplatz in <span>Sekunden</span> – statt in Runden.
+                Finde deinen Parkplatz in <span>Sekunden</span>.
             </h1>
 
             <p class="hero-subtitle">
-                ParkEase verbindet Autofahrer mit privaten Parkplatzbesitzern. So wird aus leeren Stellplätzen
-                ein smartes Sharing-Netzwerk – für weniger Suchverkehr, mehr Zeit und ein entspanntes Ankommen.
+                ParkEase verbindet Autofahrer mit privaten Stellplatzanbietern.
+                Schnell, effizient und nachhaltig.
             </p>
 
             <div class="hero-highlight">
-                <div class="chip chip-strong">Weniger Stau & CO₂</div>
-                <div class="chip">Zusatzeinnahmen für Vermieter</div>
-                <div class="chip">Sichere Buchung & Bezahlung</div>
+                <div class="chip chip-strong">Weniger CO₂</div>
+                <div class="chip">Einnahmen für Vermieter</div>
+                <div class="chip">Sichere Bezahlung</div>
             </div>
 
-            <div class="hero-actions">
-                <a href="#termin">
-                    <button class="btn-primary">Jetzt Termin mit dem Projektteam buchen</button>
-                </a>
-                <a href="#video">
-                    <button class="btn-ghost">Pitch-Video ansehen</button>
-                </a>
-            </div>
-
-            <div class="hero-note">
-                MVP-Umsetzung im Rahmen eines Hochschulprojekts · Geplanter Launch: Januar 2026
-            </div>
+            <a href="#termin"><button class="btn-primary">Termin mit dem Team buchen</button></a>
         </div>
 
         <div class="hero-right">
-            <div class="hero-card">
-                <div class="hero-card-header">
-                    <div>
-                        <div class="hero-card-title">Live-Parkplätze in deiner Stadt</div>
-                        <div>ParkEase – App-Mockup (Konzept)</div>
-                    </div>
-                    <div class="hero-card-badge">Beta</div>
-                </div>
-
-                <div class="map-placeholder">
-                    <div class="map-inner">
-                        <div class="map-slot">Belegt</div>
-                        <div class="map-slot free">Frei • 3,50 €</div>
-                        <div class="map-slot">Belegt</div>
-                        <div class="map-slot free">Frei • 2 Min.</div>
-                        <div class="map-slot">Belegt</div>
-                        <div class="map-slot free">Frei • privat</div>
-                    </div>
-                </div>
-
-                <div class="hero-card-footer">
-                    <span>Suche · Reservieren · Bezahlen – alles in einer App</span>
-                    <span>ParkEase · v0.1 MVP</span>
-                </div>
-            </div>
+            <strong>App-Mockup · Konzeptvorschau</strong>
+            <p style="color: var(--muted); font-size: 13px; margin-top: 6px;">
+                Reservieren, buchen & bezahlen – alles in einer App.
+            </p>
         </div>
     </section>
 
+    <!-- VIDEO – groß und mittig -->
     <main>
-        <section id="funktion">
-            <h2>Wie ParkEase funktioniert</h2>
-            <p class="section-subtitle">
-                Für Autofahrer ist ParkEase die schnellste Abkürzung zum Parkplatz. Für Besitzer wird der Stellplatz zur nachhaltigen Einnahmequelle.
-            </p>
-
-            <div class="grid-two">
-                <div class="card-soft">
-                    <h3>Für Autofahrer</h3>
-                    <ul>
-                        <li>Freie Parkplätze in Echtzeit finden.</li>
-                        <li>Preis & Entfernung vergleichen.</li>
-                        <li>Reservieren & Navigieren mit einem Klick.</li>
-                        <li>Bezahlung direkt per App.</li>
-                    </ul>
-                </div>
-
-                <div class="card-soft">
-                    <h3>Für Vermieter</h3>
-                    <ul>
-                        <li>Stellplatz stundenweise freigeben.</li>
-                        <li>Eigene Preise wählen.</li>
-                        <li>Buchungen & Einnahmen im Dashboard.</li>
-                        <li>Bewertungen für Vertrauen.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
         <section id="video">
-            <h2>Pitch-Video</h2>
-            <p class="section-subtitle">
-                Kurz und klar: So löst ParkEase das Parkplatzproblem – effizient und nachhaltig.
+            <h2 style="text-align:center;">Pitch-Video</h2>
+            <p class="section-subtitle" style="text-align:center;">
+                Unser Projekt in nur 30 Sekunden erklärt.
             </p>
 
             <div class="video-wrapper">
-                <iframe 
-                    src="https://www.youtube.com/embed/il_ueri6y8s?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=il_ueri6y8s"
-                    title="ParkEase Pitch Video"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    referrerpolicy="strict-origin-when-cross-origin"
+                <iframe
+                    src="https://www.youtube.com/embed/il_ueri6y8s?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&rel=0&playsinline=1&playlist=il_ueri6y8s"
                     allow="autoplay; encrypted-media"
                     allowfullscreen>
                 </iframe>
             </div>
 
+            <!-- CTA BOX -->
             <div class="cta-box" id="termin">
-                <strong>Direkt mit dem Projektteam sprechen?</strong><br>
-                Buche ein kurzes Gespräch über Calendly.
-                <br>
+                <strong>Möchtest du mit uns sprechen?</strong><br>
+                Buche gerne einen kurzen Termin über Calendly.<br>
 
-                <a href="https://calendly.com/leonbritz0" target="_blank" rel="noopener noreferrer">
-                    <button class="cta-button">
-                        Termin buchen <span>→</span>
-                    </button>
+                <a href="https://calendly.com/leonbritz0" target="_blank">
+                    <button class="cta-button">Termin buchen →</button>
                 </a>
 
-                <div style="margin-top: 4px; font-size: 11px; color: var(--muted);">
-                    Der Link führt zu unserem öffentlichen Calendly-Kalender.
-                </div>
+                <p style="font-size:11px; color:var(--muted); margin-top:6px;">
+                    Der Link führt zu unserem öffentlichen Kalender.
+                </p>
             </div>
+        </section>
+
+        <!-- FUNKTION -->
+        <section id="funktion">
+            <h2>Wie ParkEase funktioniert</h2>
+            <p class="section-subtitle">
+                Einfach für Fahrer – transparent für Vermieter.
+            </p>
+
+            <ul>
+                <li>Fahrer finden freie Parkplätze in Echtzeit.</li>
+                <li>Vermieter stellen Stellplätze flexibel zur Verfügung.</li>
+                <li>Navigation & Zahlung direkt in der App.</li>
+            </ul>
         </section>
     </main>
 
     <footer>
-        ParkEase – Konzept im Rahmen eines Hochschulprojekts (MVP).<br>
-        Bereitgestellt über <strong>GitHub Pages</strong>.
+        ParkEase – Hochschulprojekt (MVP). Bereitgestellt über GitHub Pages.
     </footer>
 
 </div>
 </body>
 </html>
+
