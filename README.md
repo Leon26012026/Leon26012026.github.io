@@ -8,10 +8,9 @@
 
     <style>
         :root {
-            --bg: #f2f7f5;
-            --bg-soft: #e3f6ec;
+            --bg: #f2f6fb;
+            --bg-soft: #e0f2fe;
             --accent: #16a34a;
-            --accent-soft: #bbf7d0;
             --accent-blue: #2563eb;
             --accent-blue-soft: #dbeafe;
             --text: #0f172a;
@@ -19,7 +18,7 @@
             --card: #ffffff;
             --border-soft: #d1d5db;
             --radius: 16px;
-            --shadow: 0 18px 40px rgba(0,0,0,0.08);
+            --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
             --max-box: 880px;
         }
 
@@ -28,9 +27,9 @@
         body {
             margin: 0;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top, #dbeafe 0, #f2f7f5 45%, #ecfdf3 100%);
+            background: radial-gradient(circle at top, #dbeafe 0, #f2f6fb 40%, #ecfdf3 100%);
             color: var(--text);
-            line-height: 1.55;
+            line-height: 1.6;
         }
 
         a { color: inherit; text-decoration: none; }
@@ -87,11 +86,30 @@
             color: var(--muted);
         }
 
+        nav a {
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #3b82f6, #16a34a);
+            transition: width 0.2s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
         nav a:hover {
             color: var(--accent-blue);
         }
 
-        /* VIDEO OBEN */
         main {
             margin-top: 10px;
             display: block;
@@ -116,6 +134,7 @@
             margin-bottom: 14px;
         }
 
+        /* VIDEOBLOCK */
         .video-wrapper {
             width: 100%;
             max-width: var(--max-box);
@@ -125,6 +144,7 @@
             border-radius: 18px;
             overflow: hidden;
             border: 1px solid #d1d5db;
+            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
         }
 
         .video-wrapper iframe {
@@ -139,14 +159,19 @@
             margin: 12px auto 0;
             font-size: 14px;
             color: var(--muted);
+            font-weight: 700; /* kompletter Block fett */
         }
 
         .info-block ul {
             margin-top: 8px;
-            padding-left: 18px;
+            padding-left: 20px;
         }
 
-        /* HERO */
+        .info-block li + li {
+            margin-top: 4px;
+        }
+
+        /* HERO / IDEE */
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -214,7 +239,7 @@
         .btn-row {
             display: flex;
             gap: 10px;
-            margin: 8px 0 6px;
+            margin: 10px 0 6px;
             flex-wrap: wrap;
         }
 
@@ -226,10 +251,13 @@
             color: #eff6ff;
             font-weight: 600;
             cursor: pointer;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         .btn-primary:hover {
             transform: translateY(-1px);
+            box-shadow: 0 14px 30px rgba(37, 99, 235, 0.5);
         }
 
         .hero-note {
@@ -255,12 +283,16 @@
             color: var(--muted);
         }
 
-        /* FUNKTIONS-SECTION */
+        /* FUNKTION */
         .funktion-list {
             margin-top: 6px;
             padding-left: 18px;
             color: var(--muted);
             font-size: 14px;
+        }
+
+        .funktion-list li + li {
+            margin-top: 4px;
         }
 
         footer {
@@ -317,25 +349,27 @@
 
             <div class="video-wrapper">
                 <iframe
-                    src="https://youtu.be/il_ueri6y8s"
-                    allow="autoplay; encrypted-media"
+                    src="https://www.youtube.com/embed/il_ueri6y8s?controls=1&modestbranding=1&rel=0&playsinline=1"
+                    allow="encrypted-media"
                     allowfullscreen>
                 </iframe>
             </div>
 
             <div class="info-block">
                 <p>
-                    Das Video richtet sich an alle, die in der Stadt unterwegs sind und regelmäßig Zeit mit der Parkplatzsuche verlieren –
-                    sowie an Menschen, die ungenutzte Stellplätze haben und daraus eine kleine Einnahmequelle machen möchten.
+                    Das Video richtet sich an alle, die regelmäßig Zeit durch Parkplatzsuche verlieren, sowie an Menschen,
+                    die ungenutzte Stellplätze besitzen und daraus eine flexible Einnahmequelle machen möchten.
                 </p>
+
                 <ul>
                     <li><strong>Zielgruppe:</strong> Pendler, Studierende, Innenstadtbewohner und private Stellplatzbesitzer.</li>
-                    <li><strong>Mehrwert:</strong> Weniger Suchverkehr, weniger Stress, besser genutzter Parkraum.</li>
-                    <li><strong>Call-to-Action:</strong> Wer Interesse an der Idee oder am Projekt hat, kann direkt einen Termin mit dem Team vereinbaren.</li>
+                    <li><strong>Mehrwert:</strong> Weniger Suchverkehr, weniger Stress und effizientere Nutzung vorhandener Parkflächen.</li>
+                    <li><strong>Vorteile der App:</strong> Transparente Preise, schnelle Buchung, sichere Bezahlung und klare Bewertungen.</li>
                 </ul>
-                <p style="margin-top:8px;">
-                    Wenn du Fragen zum Konzept, zur Umsetzung oder zu möglichen Erweiterungen hast, kannst du oben rechts im Menü
-                    über <strong>„Termin“</strong> direkt einen Slot über Calendly buchen.
+
+                <p style="margin-top:10px;">
+                    Wenn du Interesse am Projekt hast oder Feedback geben möchtest, kannst du oben über <strong>„Termin“</strong>
+                    direkt einen Gesprächstermin mit dem ParkEase-Team über Calendly buchen.
                 </p>
             </div>
         </section>
@@ -364,7 +398,7 @@
                 </div>
 
                 <div class="btn-row">
-                    <!-- Button führt jetzt DIREKT zu Calendly -->
+                    <!-- Button führt DIREKT zu Calendly -->
                     <a href="https://calendly.com/leonbritz0" target="_blank" rel="noopener noreferrer">
                         <button class="btn-primary">Termin mit dem Team buchen</button>
                     </a>
@@ -379,12 +413,11 @@
                 <h3>Was ist ParkEase?</h3>
                 <p>
                     ParkEase ist eine Konzept-App, die freien Parkraum sichtbar macht. Stellplätze, Einfahrten oder private
-                    Parkflächen können kurzfristig freigegeben und von Autofahrern gebucht werden. So entsteht ein
-                    smarter, gemeinschaftlich genutzter Parkplatzpool.
+                    Parkflächen können kurzfristig freigegeben und von Autofahrern gebucht werden.
                 </p>
                 <p>
-                    Im nächsten Schritt arbeiten wir an Prototyp, Nutzer-Feedback-Runden und einer möglichen Testphase
-                    in ausgewählten Stadtvierteln.
+                    So entsteht ein smarter, gemeinschaftlich genutzter Parkplatzpool – mit Vorteil für Fahrer, Vermieter
+                    und die Umwelt.
                 </p>
             </div>
         </section>
@@ -398,7 +431,7 @@
 
             <ul class="funktion-list">
                 <li><strong>Für Fahrer:</strong> App öffnen, Zielgebiet wählen, freien Stellplatz auswählen und direkt buchen.</li>
-                <li><strong>Für Vermieter:</strong> Stellplatz anlegen, Zeiten & Preise festlegen, Buchungen verwalten.</li>
+                <li><strong>Für Vermieter:</strong> Stellplatz anlegen, Zeiten & Preise festlegen, Buchungen im Überblick behalten.</li>
                 <li><strong>Bezahlung:</strong> Läuft digital über integrierte Zahlungsdienste (z. B. Karten- oder Wallet-Anbieter).</li>
                 <li><strong>Nachhaltigkeit:</strong> Weniger Suchverkehr bedeutet weniger Emissionen und weniger Stress im Stadtverkehr.</li>
             </ul>
@@ -413,5 +446,3 @@
 </div>
 </body>
 </html>
-
-
