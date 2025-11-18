@@ -317,7 +317,7 @@
 
             <div class="video-wrapper">
                 <iframe
-                    src="https://www.youtube.com/embed/il_ueri6y8s?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&rel=0&playsinline=1&playlist=il_ueri6y8s"
+                    src="https://youtu.be/il_ueri6y8s"
                     allow="autoplay; encrypted-media"
                     allowfullscreen>
                 </iframe>
