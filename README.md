@@ -1,4 +1,3 @@
-
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -8,17 +7,17 @@
 
     <style>
         :root {
-            --bg: #f2f6fb;
-            --bg-soft: #e0f2fe;
+            --bg: #020617;
             --accent: #16a34a;
             --accent-blue: #2563eb;
-            --accent-blue-soft: #dbeafe;
+            --accent-blue-soft: #1d4ed8;
+            --accent-soft: #bbf7d0;
             --text: #0f172a;
             --muted: #6b7280;
             --card: #ffffff;
             --border-soft: #d1d5db;
-            --radius: 16px;
-            --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+            --radius: 18px;
+            --shadow: 0 24px 60px rgba(15, 23, 42, 0.45);
             --max-box: 880px;
         }
 
@@ -27,9 +26,48 @@
         body {
             margin: 0;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top, #dbeafe 0, #f2f6fb 40%, #ecfdf3 100%);
             color: var(--text);
             line-height: 1.6;
+            background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animierter Hintergrund */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -20%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(59,130,246,0.18), transparent 55%),
+                radial-gradient(circle at 90% 10%, rgba(34,197,94,0.18), transparent 55%),
+                radial-gradient(circle at 50% 90%, rgba(59,130,246,0.22), transparent 55%);
+            opacity: 0.9;
+            z-index: -2;
+            animation: bgFloat 35s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgFloat {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+            50% {
+                transform: translate3d(-3%, 1%, 0) scale(1.05);
+            }
+            100% {
+                transform: translate3d(2%, -2%, 0) scale(1.02);
+            }
+        }
+
+        .noise-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.32;
+            z-index: -1;
+            background-image: linear-gradient(to right, rgba(148,163,184,0.06) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(148,163,184,0.06) 1px, transparent 1px);
+            background-size: 18px 18px;
         }
 
         a { color: inherit; text-decoration: none; }
@@ -55,39 +93,41 @@
         }
 
         .logo-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: radial-gradient(circle at 30% 20%, #3b82f6, #1d4ed8); /* blau */
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: radial-gradient(circle at 30% 20%, #3b82f6, #1d4ed8);
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
             font-size: 20px;
             font-weight: 800;
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 16px 35px rgba(37, 99, 235, 0.6);
         }
 
         .logo-text-title {
             font-weight: 700;
             font-size: 18px;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.04em;
+            color: #e5e7eb;
         }
 
         .logo-text-sub {
             font-size: 12px;
-            color: var(--muted);
+            color: #9ca3af;
         }
 
         nav {
             display: flex;
             gap: 18px;
             font-size: 14px;
-            color: var(--muted);
+            color: #9ca3af;
         }
 
         nav a {
             position: relative;
+            padding-bottom: 2px;
         }
 
         nav a::after {
@@ -98,7 +138,7 @@
             width: 0;
             height: 2px;
             border-radius: 999px;
-            background: linear-gradient(90deg, #3b82f6, #16a34a);
+            background: linear-gradient(90deg, #3b82f6, #22c55e);
             transition: width 0.2s ease;
         }
 
@@ -107,7 +147,7 @@
         }
 
         nav a:hover {
-            color: var(--accent-blue);
+            color: #e5e7eb;
         }
 
         main {
@@ -115,23 +155,27 @@
             display: block;
         }
 
+        /* GENERISCHE SECTION-KARTEN */
         section {
-            background: var(--card);
+            background: radial-gradient(circle at top left, rgba(59,130,246,0.16), rgba(15,23,42,0.98));
             border-radius: var(--radius);
             padding: 22px;
             margin-bottom: 22px;
-            border: 1px solid var(--border-soft);
+            border: 1px solid rgba(148,163,184,0.3);
             box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
         }
 
         h2 {
             margin: 0 0 12px;
             font-size: 20px;
+            color: #e5e7eb;
         }
 
         .section-subtitle {
-            color: var(--muted);
+            color: #9ca3af;
             margin-bottom: 14px;
+            font-size: 14px;
         }
 
         /* VIDEOBLOCK */
@@ -139,12 +183,25 @@
             width: 100%;
             max-width: var(--max-box);
             aspect-ratio: 16 / 9;
-            margin: 16px auto;
-            background: #000;
-            border-radius: 18px;
+            margin: 18px auto 10px;
+            background: #020617;
+            border-radius: 20px;
             overflow: hidden;
-            border: 1px solid #d1d5db;
-            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
+            border: 1px solid rgba(148,163,184,0.5);
+            box-shadow: 0 18px 45px rgba(15,23,42,0.8);
+            position: relative;
+        }
+
+        .video-wrapper::before {
+            content: "▶";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 46px;
+            color: rgba(248,250,252,0.65);
+            pointer-events: none;
+            text-shadow: 0 12px 30px rgba(15,23,42,0.9);
         }
 
         .video-wrapper iframe {
@@ -156,10 +213,36 @@
 
         .info-block {
             max-width: var(--max-box);
-            margin: 12px auto 0;
+            margin: 14px auto 0;
             font-size: 14px;
-            color: var(--muted);
-            font-weight: 700; /* kompletter Block fett */
+            color: #e5e7eb;
+            font-weight: 700; /* wichtiger Block */
+            background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(15,23,42,0.85));
+            border-radius: 14px;
+            padding: 14px 16px;
+            border: 1px solid rgba(148,163,184,0.45);
+            position: relative;
+        }
+
+        .info-block::before {
+            content: "i";
+            position: absolute;
+            left: 14px;
+            top: 14px;
+            width: 22px;
+            height: 22px;
+            border-radius: 999px;
+            border: 1px solid rgba(59,130,246,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #bfdbfe;
+            background: rgba(15,23,42,0.9);
+        }
+
+        .info-block-inner {
+            padding-left: 32px;
         }
 
         .info-block ul {
@@ -174,20 +257,20 @@
         /* HERO / IDEE */
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 32px;
         }
 
         .hero-badge {
-            background: #ecfdf3;
-            border: 1px solid #bbf7d0;
+            background: rgba(22,163,74,0.12);
+            border: 1px solid rgba(74,222,128,0.6);
             padding: 4px 10px;
             border-radius: 999px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             font-size: 11px;
-            color: #166534;
+            color: #bbf7d0;
         }
 
         .hero-badge-dot {
@@ -195,23 +278,26 @@
             height: 18px;
             border-radius: 50%;
             background: radial-gradient(circle, #22c55e, #15803d);
+            box-shadow: 0 0 12px rgba(34,197,94,0.8);
         }
 
         .hero-title {
             font-size: clamp(32px, 4vw, 44px);
             font-weight: 800;
             margin: 10px 0;
+            color: #f9fafb;
         }
 
         .hero-title span {
-            background: linear-gradient(120deg, #16a34a, #2563eb);
+            background: linear-gradient(120deg, #22c55e, #38bdf8);
             -webkit-background-clip: text;
             color: transparent;
         }
 
         .hero-subtitle {
-            color: var(--muted);
+            color: #cbd5f5;
             max-width: 520px;
+            font-size: 14px;
         }
 
         .hero-highlight {
@@ -224,70 +310,81 @@
         .chip {
             padding: 6px 12px;
             border-radius: 999px;
-            background: #ecfdf3;
-            border: 1px solid #bbf7d0;
-            color: #166534;
+            background: rgba(15,23,42,0.9);
+            border: 1px solid rgba(148,163,184,0.6);
+            color: #e5e7eb;
             font-size: 12px;
         }
 
         .chip-strong {
-            background: #16a34a;
-            border-color: #16a34a;
-            color: #ecfdf3;
+            background: rgba(22,163,74,0.2);
+            border-color: rgba(74,222,128,0.9);
+            color: #bbf7d0;
         }
 
         .btn-row {
             display: flex;
             gap: 10px;
-            margin: 10px 0 6px;
+            margin: 10px 0 8px;
             flex-wrap: wrap;
         }
 
         .btn-primary {
             padding: 10px 18px;
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
             border-radius: 999px;
             border: none;
             color: #eff6ff;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 14px 30px rgba(15,23,42,0.8);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
         }
 
         .btn-primary:hover {
             transform: translateY(-1px);
-            box-shadow: 0 14px 30px rgba(37, 99, 235, 0.5);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+            filter: brightness(1.05);
         }
 
         .hero-note {
             font-size: 11px;
-            color: var(--muted);
+            color: #9ca3af;
         }
 
         .hero-right {
-            background: white;
+            background: radial-gradient(circle at top left, rgba(37,99,235,0.16), rgba(15,23,42,0.96));
             padding: 16px;
-            border-radius: 20px;
-            border: 1px solid var(--border-soft);
-            box-shadow: var(--shadow);
+            border-radius: 18px;
+            border: 1px solid rgba(148,163,184,0.45);
+            box-shadow: 0 18px 45px rgba(15,23,42,0.9);
         }
 
         .hero-right h3 {
             margin-top: 0;
             font-size: 15px;
+            color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-right h3::before {
+            content: "ⓘ";
+            font-size: 13px;
+            color: #93c5fd;
         }
 
         .hero-right p {
             font-size: 13px;
-            color: var(--muted);
+            color: #cbd5f5;
         }
 
         /* FUNKTION */
         .funktion-list {
             margin-top: 6px;
             padding-left: 18px;
-            color: var(--muted);
+            color: #e5e7eb;
             font-size: 14px;
         }
 
@@ -295,10 +392,14 @@
             margin-top: 4px;
         }
 
+        .funktion-list li::marker {
+            color: #38bdf8;
+        }
+
         footer {
             margin-top: 30px;
             text-align: center;
-            color: var(--muted);
+            color: #9ca3af;
             font-size: 12px;
         }
 
@@ -319,6 +420,8 @@
 </head>
 
 <body>
+<div class="noise-overlay"></div>
+
 <div class="container">
 
     <!-- HEADER -->
@@ -356,21 +459,23 @@
             </div>
 
             <div class="info-block">
-                <p>
-                    Das Video richtet sich an alle, die regelmäßig Zeit durch Parkplatzsuche verlieren, sowie an Menschen,
-                    die ungenutzte Stellplätze besitzen und daraus eine flexible Einnahmequelle machen möchten.
-                </p>
+                <div class="info-block-inner">
+                    <p>
+                        Das Video richtet sich an alle, die regelmäßig Zeit durch Parkplatzsuche verlieren, sowie an Menschen,
+                        die ungenutzte Stellplätze besitzen und daraus eine flexible Einnahmequelle machen möchten.
+                    </p>
 
-                <ul>
-                    <li><strong>Zielgruppe:</strong> Pendler, Studierende, Innenstadtbewohner und private Stellplatzbesitzer.</li>
-                    <li><strong>Mehrwert:</strong> Weniger Suchverkehr, weniger Stress und effizientere Nutzung vorhandener Parkflächen.</li>
-                    <li><strong>Vorteile der App:</strong> Transparente Preise, schnelle Buchung, sichere Bezahlung und klare Bewertungen.</li>
-                </ul>
+                    <ul>
+                        <li><strong>Zielgruppe:</strong> Pendler, Studierende, Innenstadtbewohner und private Stellplatzbesitzer.</li>
+                        <li><strong>Mehrwert:</strong> Weniger Suchverkehr, weniger Stress und effizientere Nutzung vorhandener Parkflächen.</li>
+                        <li><strong>Vorteile der App:</strong> Transparente Preise, schnelle Buchung, sichere Bezahlung und klare Bewertungen.</li>
+                    </ul>
 
-                <p style="margin-top:10px;">
-                    Wenn du Interesse am Projekt hast oder Feedback geben möchtest, kannst du oben über <strong>„Termin“</strong>
-                    direkt einen Gesprächstermin mit dem ParkEase-Team über Calendly buchen.
-                </p>
+                    <p style="margin-top:10px;">
+                        Wenn du Interesse am Projekt hast oder Feedback geben möchtest, kannst du oben über <strong>„Termin“</strong>
+                        direkt einen Gesprächstermin mit dem ParkEase-Team über Calendly buchen.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -446,3 +551,4 @@
 </div>
 </body>
 </html>
+
