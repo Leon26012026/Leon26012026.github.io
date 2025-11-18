@@ -48,15 +48,9 @@
         }
 
         @keyframes bgFloat {
-            0% {
-                transform: translate3d(0, 0, 0) scale(1);
-            }
-            50% {
-                transform: translate3d(-3%, 1%, 0) scale(1.05);
-            }
-            100% {
-                transform: translate3d(2%, -2%, 0) scale(1.02);
-            }
+            0% { transform: translate3d(0, 0, 0) scale(1); }
+            50% { transform: translate3d(-3%, 1%, 0) scale(1.05); }
+            100% { transform: translate3d(2%, -2%, 0) scale(1.02); }
         }
 
         .noise-overlay {
@@ -89,7 +83,7 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo-icon {
@@ -113,9 +107,13 @@
             color: #e5e7eb;
         }
 
-        .logo-text-sub {
-            font-size: 12px;
-            color: #9ca3af;
+        /* Neuer, großer Slogan neben dem Icon */
+        .logo-slogan {
+            font-size: 17px;
+            font-weight: 900;
+            color: #facc15;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
 
         nav {
@@ -191,8 +189,6 @@
             box-shadow: 0 18px 45px rgba(15,23,42,0.8);
             position: relative;
         }
-
-        /* Overlay-Pfeil entfernt -> kein blaues Zeichen mehr */
 
         .video-wrapper iframe {
             width: 100%;
@@ -274,41 +270,15 @@
         .hero-title {
             font-size: clamp(32px, 4vw, 44px);
             font-weight: 800;
-            margin: 10px 0 4px;
+            margin: 10px 0 8px;
             color: #f9fafb;
-        }
-
-        /* Animierter Slogan */
-        .hero-slogan {
-            font-size: 22px;
-            font-weight: 900;
-            color: #facc15;
-            text-shadow: 0 4px 18px rgba(15,23,42,0.9);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            animation: sloganPulse 3s ease-in-out infinite;
-        }
-
-        @keyframes sloganPulse {
-            0% {
-                transform: translateY(0);
-                opacity: 0.7;
-            }
-            50% {
-                transform: translateY(-2px);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 0.7;
-            }
         }
 
         .hero-subtitle {
             color: #cbd5f5;
             max-width: 520px;
             font-size: 14px;
-            margin-top: 10px;
+            margin-top: 4px;
         }
 
         .hero-highlight {
@@ -399,6 +369,7 @@
             margin: 10px 0 14px;
             border: 1px solid rgba(148,163,184,0.7);
             box-shadow: 0 12px 30px rgba(15,23,42,0.9);
+            display: block;
         }
 
         /* FUNKTION */
@@ -451,7 +422,7 @@
             <div class="logo-icon">P</div>
             <div>
                 <div class="logo-text-title">ParkEase</div>
-                <div class="logo-text-sub">Parkplätze teilen. Stress sparen.</div>
+                <div class="logo-slogan">Parkplätze teilen. Stress sparen.</div>
             </div>
         </div>
 
@@ -512,10 +483,6 @@
                     Finde deinen Parkplatz in <span>Sekunden</span>.
                 </h1>
 
-                <div class="hero-slogan">
-                    Parkplätze teilen. Stress sparen.
-                </div>
-
                 <p class="hero-subtitle">
                     ParkEase verbindet Autofahrer mit privaten Stellplatzanbietern – so wird aus ungenutzten
                     Parkflächen ein flexibles, digitales Sharing-Angebot.
@@ -542,10 +509,11 @@
             <div class="hero-right">
                 <h3>Was ist ParkEase?</h3>
 
-                <!-- Bild aus dem Anhang – Datei im Repo z. B. als parkease-parkhaus.jpg speichern -->
-                <img src="parkease-parkhaus.jpg"
-                     alt="Leeres, großes Parkhaus mit vielen Stellplätzen"
-                     class="hero-image">
+                <!-- Bild mit deinem externen Link -->
+                <img
+                    src="https://www.abendzeitung-muenchen.de/storage/image/4/4/7/3/1153744_woehr-bauer_mehrzumthema_1ACZQZ_L0Z1n0.jpg"
+                    alt="Leeres, großes Parkhaus mit vielen Stellplätzen"
+                    class="hero-image">
 
                 <p>
                     ParkEase ist eine Konzept-App, die freien Parkraum sichtbar macht. Stellplätze, Einfahrten oder private
